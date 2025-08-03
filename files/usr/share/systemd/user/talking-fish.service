@@ -1,0 +1,15 @@
+[Unit]
+Description=Talking fish service
+PartOf=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+Environment="OPENAI_API_KEY=<key>"
+WorkingDirectory=<git_repo_directory>
+ExecStart=<git_repo_directory>/env/bin/python <git_repo_directory>/talking-fish.py
+ExecStop=/bin/kill $MAINPID
+
+[Install]
+WantedBy=default.target
