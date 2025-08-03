@@ -18,3 +18,11 @@ python -m venv ./env
 ./env/bin/pip install paho-mqtt gTTS RPi.GPIO openai
 sudo apt install mpg321 -y
 ```
+Prepare systemctl service
+```
+sudo mkdir -p /usr/share/systemd/user
+cd /usr/share/systemd/user
+sudo ln -s <git_repo_directory>/files/usr/share/systemd/user/talking-fish.service
+systemctl --user enable talking-fish
+systemctl --user start talking-fish
+```
